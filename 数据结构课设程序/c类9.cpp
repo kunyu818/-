@@ -1,37 +1,33 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
-void formatSentence(char* sentence) {
-    int length = strlen(sentence);
-    int index = 0;
-    int spaceCount = 0;
-    int start = 0;
-    for (int i = 0; i < length; i++) {
-        if (!isspace(sentence[i])) {
-            sentence[index++] = sentence[i];
-            spaceCount = 0;
-            start = index;
+void f(char* a) {
+    int b = 0, c = 0, d = 0;
+    for (int e = 0; e < strlen(a); e++) {
+        if (!isspace(a[e])) {
+            a[b++] = a[e];
+            c = 0;
+            d = b;
         } else {
-            spaceCount++;
-            if (spaceCount == 1) {
-                sentence[index++] = ' ';
+            c++;
+            if (c == 1) {
+                a[b++] = ' ';
             }
         }
     }
-    if (index > start && isspace(sentence[index - 1])) {
-        index--;
+    if (b > d && isspace(a[b - 1])) {
+        b--;
     }
-    sentence[index] = '\0';
+    a[b] = '\0';
 }
 int main() {
-    char sentence1[] = "This is an example sentence.";
-    printf("ÊäÈë: \"%s\"\n", sentence1);
-    formatSentence(sentence1);
-    printf("Êä³ö: \"%s\"\n", sentence1);
-    char sentence2[] = " Hello world! ";
-    printf("\nÊäÈë: \"%s\"\n", sentence2);
-    formatSentence(sentence2);
-    printf("Êä³ö: \"%s\"\n", sentence2);
+    char s1[] = "This is an example sentence.";
+    printf("è¾“å…¥: \"%s\"\n", s1);
+    f(s1);
+    printf("è¾“å‡º: \"%s\"\n", s1);
+    char s2[] = " Hello world! ";
+    printf("\nè¾“å…¥: \"%s\"\n", s2);
+    f(s2);
+    printf("è¾“å‡º: \"%s\"\n", s2);
     return 0;
 }
-
